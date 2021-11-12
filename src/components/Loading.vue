@@ -10,20 +10,6 @@
         ></li>
       </ul>
     </section>
-    <!-- <div class="heart-loading flex-ct-x">
-      <div class="ul">
-        <div v-for="item in 9" :key="item"></div>
-        <div class="li line-1" style="--line-index: 1"></div>
-        <div class="li line-2" style="--line-index: 2"></div>
-        <div class="li line-3" style="--line-index: 3"></div>
-        <div class="li line-4" style="--line-index: 4"></div>
-        <div class="li line-5" style="--line-index: 5"></div>
-        <div class="li line-6" style="--line-index: 6"></div>
-        <div class="li line-7" style="--line-index: 7"></div>
-        <div class="li line-8" style="--line-index: 8"></div>
-        <div class="li line-9" style="--line-index: 9"></div>
-      </div>
-    </div> -->
     <div class="loading-text">加载中</div>
   </div>
 </template>

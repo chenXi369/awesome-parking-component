@@ -39,7 +39,7 @@
     <!-- 虚拟键盘 -->
     <div
       class="keyboard1"
-      :class="{ 'keyboard': pageState === 0, 'keyboard1': pageState === 1 }"
+      :class="{ keyboard: pageState === 0, keyboard1: pageState === 1 }"
       v-show="KeyboardState"
     >
       <div class="keyboardClose">
@@ -135,16 +135,7 @@ export default {
     openKeyboard(i) {
       this.selectIndex = i;
       this.KeyboardState = true;
-      this.activeList = [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ];
+      this.activeList = [...new Array(8).fill(false)]
       this.activeList[i] = true;
       if (i === 7) {
         this.showNewPower = true;
@@ -152,7 +143,11 @@ export default {
       console.log(this.activeList);
     },
     // 清空车牌
-    clearKeyboard() {},
+    clearKeyboard() {
+      this.showNewPower = false;
+      this.activeList = [true, ...new Array(7).fill(false)];
+      this.$emit("clearPlateNum")
+    },
     // 关闭
     closeKeyboard() {
       this.KeyboardState = false;
@@ -213,14 +208,14 @@ export default {
     },
     // 自定义键盘的删除事件
     bindDelChoose() {
-      this.activeList = [false, false, false, false, false, false, false, false];
-      let carnum = this.carnum
-      let activeList = this.activeList
-      carnum[this.selectIndex] = ""
-      activeList[this.selectIndex - 1] = true
-      this.selectIndex--
-      this.activeList = activeList
-      this.$emit("getCarNum", carnum)
+      this.activeList = [...new Array(8).fill(false)]
+      let carnum = this.carnum;
+      let activeList = this.activeList;
+      carnum[this.selectIndex] = "";
+      activeList[this.selectIndex - 1] = true;
+      this.selectIndex--;
+      this.activeList = activeList;
+      this.$emit("getCarNum", carnum);
     },
   },
 };
@@ -363,7 +358,7 @@ li {
     position: absolute;
     left: 106px;
     top: 0;
-  } 
+  }
   .carNumber-item {
     width: 36px;
     color: #666666;
