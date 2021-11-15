@@ -2,7 +2,7 @@
   <div class="plateNumer">
     <!-- 车牌号码输入框 -->
     <div class="carNum__area">
-      <!-- 车牌号头两位 -->
+      <!-- 车牌号前七位 -->
       <ul class="carNumber-items">
         <li
           v-for="(item, index) in carnum.length - 1"
